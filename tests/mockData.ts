@@ -16,4 +16,14 @@ const RSS_LINK_MOCKS = [
   { href: "https://www.something.com/rss.rss/", success: true },
 ];
 
-export { INVALID_FEED_ATTRIBUTES, RSS_LINK_MOCKS };
+const URL_MOCKS = [
+  { url: "", success: false },
+  { url: "mailto:dasdV@cyxu.de", success: false },
+  { url: "https://xycyx.com", success: true },
+  { url: "http://xycyx.com", success: true },
+  { url: "https://sub.xycyx.com", success: true },
+  { url: "without-protocol.com", success: false },
+  { url: "123", success: false },
+];
+
+export { INVALID_FEED_ATTRIBUTES, RSS_LINK_MOCKS, URL_MOCKS };

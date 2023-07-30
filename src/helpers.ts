@@ -18,8 +18,17 @@ function processResult({ err, href }: Result): ResultResponse {
   return { success: true, href };
 }
 
+function isValidHttpUrl(urlAttempt: string): boolean {
+  try {
+    const newUrl = new URL(urlAttempt);
+    return newUrl.protocol === "http:" || newUrl.protocol === "https:";
+  } catch (err) {
+    return false;
+  }
+}
+
 function isRSSLink(anchorHref: string): boolean {
   return anchorHref.endsWith(".rss") || anchorHref.endsWith(".rss/");
 }
 
-export { isValidLinkTag, processResult, isRSSLink };
+export { isValidLinkTag, processResult, isRSSLink, isValidHttpUrl };

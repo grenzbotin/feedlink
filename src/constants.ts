@@ -3,6 +3,7 @@ import { FeedlinkErrors, FeedAttributes } from "./types.js";
 const ERRORS: FeedlinkErrors = {
   no_feed: "NO_FEED_FOUND",
   invalid: "INVALID",
+  invalid_url: "INVALID_URL",
 };
 
 const VALID_FEED_ATTRIBUTES: FeedAttributes[] = [

@@ -1,8 +1,17 @@
 import test from "ava";
 
-import { isRSSLink, isValidLinkTag, processResult } from "../src/helpers.js";
+import {
+  isRSSLink,
+  isValidHttpUrl,
+  isValidLinkTag,
+  processResult,
+} from "../src/helpers.js";
 import { ERRORS, VALID_FEED_ATTRIBUTES } from "../src/constants.js";
-import { INVALID_FEED_ATTRIBUTES, RSS_LINK_MOCKS } from "./mockData.js";
+import {
+  INVALID_FEED_ATTRIBUTES,
+  RSS_LINK_MOCKS,
+  URL_MOCKS,
+} from "./mockData.js";
 
 INVALID_FEED_ATTRIBUTES.forEach((attributes) => {
   test(`helpers/isValidLinkTag: "${attributes.type}" (rel: "${attributes?.rel}") should return false`, (t) => {
@@ -36,6 +45,14 @@ test("helpers/processResult: should return successful payload with right href", 
 RSS_LINK_MOCKS.forEach((mock) => {
   test(`helpers/isRSSLink: should return ${mock.success} for ${mock.href}`, (t) => {
     const result = isRSSLink(mock.href);
+
+    t.is(result, mock.success);
+  });
+});
+
+URL_MOCKS.forEach((mock) => {
+  test(`helpers/isValidHttpUrl: should return ${mock.success} for ${mock.url}`, (t) => {
+    const result = isValidHttpUrl(mock.url);
 
     t.is(result, mock.success);
   });
