@@ -1,0 +1,54 @@
+{
+  "name": "@grenzbotin/feedlink",
+  "version": "0.1.1",
+  "description": "Retrieve the rss feed link from a page if existing.",
+  "main": "./lib/src/index.js",
+  "types": "./lib/src/index.d.ts",
+  "files": [
+    "/lib",
+    "!/lib/tests",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "npx tsc && npx ava",
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grenzbotin/feedlink.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grenzbotin/feedlink/issues"
+  },
+  "homepage": "https://github.com/grenzbotin/feedlink#readme",
+  "keywords": [
+    "website",
+    "feed",
+    "rss",
+    "atom",
+    "rdf",
+    "nodejs"
+  ],
+  "author": "grenzbotin",
+  "license": "MIT",
+  "ava": {
+    "typescript": {
+      "rewritePaths": {
+        "/": "lib/"
+      },
+      "compile": false
+    }
+  },
+  "dependencies": {
+    "got": "^13.0.0",
+    "node-html-parser": "^6.1.5"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^4.1.0",
+    "@types/got": "^9.6.12",
+    "ava": "^5.3.1",
+    "typescript": "^5.1.6"
+  },
+  "type": "module"
+}
