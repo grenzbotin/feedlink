@@ -1,3 +1,4 @@
+import { ERRORS } from "../src/constants.js";
 import { FeedAttributes } from "../src/types.js";
 
 const INVALID_FEED_ATTRIBUTES: FeedAttributes[] = [
@@ -26,4 +27,23 @@ const URL_MOCKS = [
   { url: "123", success: false },
 ];
 
-export { INVALID_FEED_ATTRIBUTES, RSS_LINK_MOCKS, URL_MOCKS };
+const FEEDLINK_URLS = [
+  {
+    url: "https://nature.com",
+    response: { success: true, href: "https://www.nature.com/nature.rss" },
+  },
+  {
+    url: "https://css-tricks.com",
+    response: { success: true, href: "https://css-tricks.com/feed/" },
+  },
+  {
+    url: "https://science.org",
+    response: { success: false, err: "ERR_NON_2XX_3XX_RESPONSE" },
+  },
+  {
+    url: "",
+    response: { success: false, err: ERRORS.invalid_url },
+  },
+];
+
+export { INVALID_FEED_ATTRIBUTES, RSS_LINK_MOCKS, URL_MOCKS, FEEDLINK_URLS };
