@@ -1,6 +1,11 @@
 # @grenzbotin/feedlink
 
-![npm](https://img.shields.io/npm/v/@grenzbotin/feedlink) ![license](https://img.shields.io/github/license/grenzbotin/feedlink.svg) ![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)
+[![npm](https://img.shields.io/npm/v/@grenzbotin/feedlink)](https://www.npmjs.com/package/@grenzbotin/feedlink)
+[![npm](https://img.shields.io/npm/dm/@grenzbotin/feedlink)](https://www.npmjs.com/package/@grenzbotin/feedlink)
+![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg) ![license](https://img.shields.io/github/license/grenzbotin/feedlink.svg)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/grenzbotin/feedlink)
+![GitHub issues](https://img.shields.io/github/issues-raw/grenzbotin/feedlink) ![Tests](https://github.com/grenzbotin/feedlink/actions/workflows/ci.yml/badge.svg)
 
 This package tries to retrieve the rss link from a website - if it exists.
 
