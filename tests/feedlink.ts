@@ -1,5 +1,5 @@
 import test from "ava";
-import { FEEDLINK_URLS } from "./mockData.js";
+import { FEEDLINK_URLS } from "./_mockData.js";
 import { getFeedLink } from "../src/feedlink.js";
 
 FEEDLINK_URLS.forEach((url) => {

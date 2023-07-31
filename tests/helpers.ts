@@ -11,7 +11,7 @@ import {
   INVALID_FEED_ATTRIBUTES,
   RSS_LINK_MOCKS,
   URL_MOCKS,
-} from "./mockData.js";
+} from "./_mockData.js";
 
 INVALID_FEED_ATTRIBUTES.forEach((attributes) => {
   test(`helpers/isValidLinkTag: "${attributes.type}" (rel: "${attributes?.rel}") should return false`, (t) => {
