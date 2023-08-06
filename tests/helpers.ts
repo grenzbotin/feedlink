@@ -4,11 +4,15 @@ import {
   isRSSLink,
   isValidHttpUrl,
   isValidLinkTag,
+  parseValidatorResponse,
   processResult,
 } from "../src/helpers.js";
 import { ERRORS, VALID_FEED_ATTRIBUTES } from "../src/constants.js";
 import {
   INVALID_FEED_ATTRIBUTES,
+  MOCK_W3C_XML_INVALID,
+  MOCK_W3C_XML_VALID,
+  MOCK_W3C_XML_VALID_WITH_ERROR,
   RSS_LINK_MOCKS,
   URL_MOCKS,
 } from "./_mockData.js";
@@ -55,5 +59,71 @@ URL_MOCKS.forEach((mock) => {
     const result = isValidHttpUrl(mock.url);
 
     t.is(result, mock.success);
+  });
+});
+
+test(`helpers/parseValidatorResponse: should parse valid with warningsList`, (t) => {
+  const result = parseValidatorResponse(MOCK_W3C_XML_VALID);
+
+  t.deepEqual(result, {
+    isValid: true,
+    errorsList: [],
+    warningsList: [
+      "SelfDoesntMatchLocation",
+      "UnknownNamespace",
+      "NotHtml",
+      "NotHtml",
+      "ContainsRelRef",
+    ],
+    infoList: [],
+  });
+});
+
+test(`helpers/parseValidatorResponse: should parse invalid`, (t) => {
+  const result = parseValidatorResponse(MOCK_W3C_XML_INVALID);
+
+  t.deepEqual(result, {
+    isValid: false,
+    errorsList: [],
+    warningsList: [],
+    infoList: [],
+  });
+});
+
+test(`helpers/parseValidatorResponse: should not parse with empty body`, (t) => {
+  const result = parseValidatorResponse("");
+
+  t.deepEqual(result, {
+    isValid: false,
+    errorsList: [ERRORS.parsing_error],
+  });
+});
+
+test(`helpers/parseValidatorResponse: should not parse with empty tag <>`, (t) => {
+  const result = parseValidatorResponse("<>");
+
+  t.deepEqual(result, {
+    isValid: false,
+    errorsList: [ERRORS.parsing_error],
+  });
+});
+
+test(`helpers/parseValidatorResponse: should not parse with just abc`, (t) => {
+  const result = parseValidatorResponse("abc");
+
+  t.deepEqual(result, {
+    isValid: false,
+    errorsList: [ERRORS.parsing_error],
+  });
+});
+
+test(`helpers/parseValidatorResponse: should parse valid with error`, (t) => {
+  const result = parseValidatorResponse(MOCK_W3C_XML_VALID_WITH_ERROR);
+
+  t.deepEqual(result, {
+    isValid: true,
+    errorsList: ["SelfDoesntMatchLocation"],
+    warningsList: [],
+    infoList: [],
   });
 });
