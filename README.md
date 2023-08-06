@@ -9,18 +9,16 @@
 [![GitHub issues](https://img.shields.io/github/issues-raw/grenzbotin/feedlink)](https://github.com/grenzbotin/feedlink/issues)
 [![Tests](https://github.com/grenzbotin/feedlink/actions/workflows/ci.yml/badge.svg)](https://github.com/grenzbotin/feedlink/actions)
 
-This package tries to retrieve the rss link from a website - if it exists.
+This package contains helpful utils for rss feeds on websites.
 
 ---
 
 Contents
 
 1. [Installation](#installation)
-2. [Usage](#usage)
-   - [Example 1](#example-1-naturecom)
-   - [Example 2](#example-2-css-trickscom)
-   - [Example 3](#example-3-scienceorg)
-3. [Limitation](#limitation)
+2. [Functions](#functions)
+   - [get](#get)
+   - [validate](#validate)
 
 ---
 
@@ -28,7 +26,9 @@ Contents
 
 `npm i @grenzbotin/feedlink`
 
-## Usage
+## Functions
+
+### Usage
 
 Import the package.
 
@@ -36,11 +36,17 @@ Import the package.
 import * as feedlink from "@grenzbotin/feedlink";
 ```
 
-Currently, there is only a `get` function available in the package.
+### Get
 
-**Note**: The function will return a promise:
+![since @grenzbotin/feedlink@0.1.0](https://img.shields.io/badge/since-v0.1.0-orange)
+
+**Description:** The get function takes any website link and tries to find and return a feed link.
+**Note:** Will return a promise.
+**Limitation**: As you see on the third example, there is no guarantee that the module will find a feed link. While the package might become more clever over time and find more rss feeds on the go, not every page has an rss feed or wants to have one.
 
 ```javascript
+import * as feedlink from "@grenzbotin/feedlink";
+
 async function getRSS(link) {
   return feedlink.get(link);
 }
@@ -50,24 +56,62 @@ const rssLink = await getRSS("https://www.(Example1|2|3)");
 console.log("Result: ", rssLink);
 ```
 
-### Example 1: nature.com
+#### Example 1: nature.com
 
 ```
 Result:  { success: true, href: 'https://www.nature.com/nature.rss' }
 ```
 
-### Example 2: css-tricks.com
+#### Example 2: css-tricks.com
 
 ```
 Result:  { success: true, href: 'https://css-tricks.com/feed/' }
 ```
 
-### Example 3: science.org
+#### Example 3: science.org
 
 ```
 Result:  { success: false, err: 'ERR_NON_2XX_3XX_RESPONSE' }
 ```
 
-## Limitation
+---
 
-As you see on the third example, there is no guarantee that the module will find a feed link. While the package might become more clever over time and find more rss feeds on the go, not every page has an rss feed or wants to have one.
+### Validate
+
+![since @grenzbotin/feedlink@0.1.3](https://img.shields.io/badge/since-v0.1.3-orange)
+<img src="https://avatars.githubusercontent.com/u/379216?s=48&v=4" height="20" alt="based on w3c validator service" />
+
+**Description:** The validate function takes any feed link and returns whether its a valid link including potential errors, warnings or information with the help of the w3c validator. Based on [validator.w3.org/feed](validator.w3.org/feed)
+
+**Note:** Will return a promise.
+
+```javascript
+import * as feedlink from "@grenzbotin/feedlink";
+
+async function validate(link) {
+  return feedlink.validate(link);
+}
+
+const result = await validate("https://css-tricks.com/feed/");
+
+console.log("Result: ", result);
+```
+
+The above logging will show:
+
+```javascript
+Result:  {
+  isValid: true,
+  errorsList: [],
+  warningsList: [
+    'SelfDoesntMatchLocation',
+    'UnknownNamespace',
+    'NotHtml',
+    'NotHtml',
+    'ContainsRelRef'
+  ],
+  infoList: []
+}
+```
+
+---
