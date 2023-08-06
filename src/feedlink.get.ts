@@ -8,9 +8,9 @@ import {
   isRSSLink,
   isValidHttpUrl,
 } from "./helpers.js";
-import { ResultResponse } from "./types.js";
+import { GetResultResponse } from "./types.js";
 
-export async function getFeedLink(link: string): Promise<ResultResponse> {
+export async function getFeedLink(link: string): Promise<GetResultResponse> {
   if (isValidHttpUrl(link)) {
     try {
       const res = await got(link);

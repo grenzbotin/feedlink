@@ -4,6 +4,8 @@ const ERRORS: FeedlinkErrors = {
   no_feed: "NO_FEED_FOUND",
   invalid: "INVALID",
   invalid_url: "INVALID_URL",
+  parsing_error: "PARSING_ERROR",
+  w3c_error: "W3C_VALIDATION_ERROR",
 };
 
 const VALID_FEED_ATTRIBUTES: FeedAttributes[] = [
@@ -23,4 +25,6 @@ const VALID_FEED_ATTRIBUTES: FeedAttributes[] = [
   { rel: "alternate", type: "application/xml" },
 ];
 
-export { ERRORS, VALID_FEED_ATTRIBUTES };
+const FEED_VALIDATOR_URL: string = "https://validator.w3.org/feed/check.cgi";
+
+export { ERRORS, VALID_FEED_ATTRIBUTES, FEED_VALIDATOR_URL };
