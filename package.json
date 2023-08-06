@@ -1,6 +1,6 @@
 {
   "name": "@grenzbotin/feedlink",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Retrieve the rss feed link from a page if existing.",
   "main": "./lib/src/index.js",
   "types": "./lib/src/index.d.ts",
