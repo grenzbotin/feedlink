@@ -1,6 +1,6 @@
 {
   "name": "@grenzbotin/feedlink",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Utils for rss feeds on websites.",
   "main": "./lib/src/index.js",
   "types": "./lib/src/index.d.ts",
