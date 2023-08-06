@@ -35,7 +35,7 @@ Object.keys(ERRORS).forEach((err) => {
   test(`helpers/processResult: should return unsuccessful payload with error: ${ERRORS[err]}`, (t) => {
     const result = processResult({ err: ERRORS.no_feed });
 
-    t.deepEqual(result, { success: false, err: ERRORS.no_feed });
+    t.deepEqual(result, { success: false, error: ERRORS.no_feed });
   });
 });
 

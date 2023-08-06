@@ -1,4 +1,5 @@
 import { HTMLElement } from "node-html-parser";
+import { Output } from "rss-parser";
 
 interface FeedAttributes {
   [key: string]: string;
@@ -15,7 +16,7 @@ type GetResult = {
 
 type GetResultResponse = {
   success: boolean;
-  err?: string;
+  error?: string;
   href?: string;
 };
 
@@ -31,6 +32,12 @@ type ValidateResult = {
   warningsList?: string[];
 };
 
+type ParseResult = {
+  success: boolean;
+  error?: string;
+  result?: Output<{ [key: string]: any }>;
+};
+
 export {
   FeedAttributes,
   FeedlinkErrors,
@@ -38,4 +45,5 @@ export {
   GetResultResponse,
   ValidateRelevantNodeResult,
   ValidateResult,
+  ParseResult,
 };

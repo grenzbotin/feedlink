@@ -44,11 +44,13 @@
   },
   "dependencies": {
     "got": "^13.0.0",
-    "node-html-parser": "^6.1.5"
+    "node-html-parser": "^6.1.5",
+    "rss-parser": "^3.13.0"
   },
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
     "@types/got": "^9.6.12",
+    "@types/xml2js": "^0.4.11",
     "ava": "^5.3.1",
     "typescript": "^5.1.6"
   },

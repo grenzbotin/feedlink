@@ -30,7 +30,7 @@ const URL_MOCKS = [
 const FEEDLINK_URLS = [
   {
     url: "",
-    response: { success: false, err: ERRORS.invalid_url },
+    response: { success: false, error: ERRORS.invalid_url },
   },
 ];
 
@@ -170,6 +170,28 @@ const MOCK_W3C_XML_VALID_WITH_ERROR = `<?xml version="1.0" encoding="UTF-8"?>
 </env:Body>
 </env:Envelope>`;
 
+const MOCK_XML_FEED_VALID = `<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Feed title</title>
+    <link>Website url</link>
+    <description>description</description>
+    <language>en-en</language>
+    <pubDate>Sun, 6 Aug 2023 2:43:19</pubDate>
+    <image>
+      <url>image url</url>
+      <title>image title</title>
+      <link>url link</link>
+    </image>
+    <item>
+      <title>title</title>
+      <description>description</description>
+    </item>
+  </channel>
+</rss>`;
+
+const MOCK_XML_FEED_INVALID = `<?xml version="1.0" encoding="utf-8"?>`;
+
 export {
   INVALID_FEED_ATTRIBUTES,
   RSS_LINK_MOCKS,
@@ -178,4 +200,6 @@ export {
   MOCK_W3C_XML_VALID,
   MOCK_W3C_XML_INVALID,
   MOCK_W3C_XML_VALID_WITH_ERROR,
+  MOCK_XML_FEED_VALID,
+  MOCK_XML_FEED_INVALID,
 };

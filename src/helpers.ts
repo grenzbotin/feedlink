@@ -37,7 +37,7 @@ function isValidLinkTag(linkTag: Attributes): boolean {
 
 function processResult({ err, href }: GetResult): GetResultResponse {
   if (err || !href) {
-    return { success: false, err };
+    return { success: false, error: err };
   }
   return { success: true, href };
 }
