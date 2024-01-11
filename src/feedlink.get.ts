@@ -29,7 +29,20 @@ export async function getFeedLink(link: string): Promise<GetResultResponse> {
             ?.href || null;
       }
 
-      const payload = (href && { href }) || { err: ERRORS.no_feed };
+      let payload = null;
+
+      if (href) {
+        if (isValidHttpUrl(href)) {
+          payload = { href };
+        } else {
+          // It is possible that we found an rss url but get back only /rss/feed
+          // instead of full url https://origin-url.com/rss/feed
+          // in this case we just want to prepend the original link
+          payload = { href: `${link}${href}` };
+        }
+      } else {
+        payload = { err: ERRORS.no_feed };
+      }
 
       return processResult(payload);
     } catch (err) {
