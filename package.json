@@ -43,7 +43,7 @@
     }
   },
   "dependencies": {
-    "got": "^13.0.0",
+    "got": "^11.0.0",
     "node-html-parser": "^6.1.5",
     "rss-parser": "^3.13.0"
   },
@@ -52,7 +52,12 @@
     "@types/got": "^9.6.12",
     "@types/xml2js": "^0.4.11",
     "ava": "^5.3.1",
+    "rollup": "^4.9.5",
     "typescript": "^5.1.6"
   },
-  "type": "module"
+  "type": "module",
+  "exports": {
+    "import": "./lib/src/index.js",
+    "require": "./lib/src/index.cjs"
+  }
 }
