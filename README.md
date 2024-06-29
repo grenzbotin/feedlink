@@ -288,3 +288,8 @@ A big shoutout and thank you goes to
 ## Notes
 
 - v0.5.0 Temporary adjustment: rss-parser: contains a reference to a commit to solve request timeout handling due to missing merge.
+
+## MacOS arm
+
+For users that are working on macos arm processors: Please follow the instructions mentioned in here to make the lib work on your machine:
+[puppeteer@5.5.0 install: `node install.js` on M1](https://stackoverflow.com/a/66044814)
