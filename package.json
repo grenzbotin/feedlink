@@ -43,9 +43,9 @@
     }
   },
   "dependencies": {
-    "got": "^14.4.1",
+    "got": "^11.0.0",
     "node-html-parser": "^6.1.13",
-    "rss-parser": "https://github.com/rbren/rss-parser.git#0afb479c4e29d6d1e314bb9b65d2b558f31e25f2"
+    "rss-parser": "rbren/rss-parser#0afb479c4e29d6d1e314bb9b65d2b558f31e25f2"
   },
   "devDependencies": {
     "@ava/typescript": "^5.0.0",
