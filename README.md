@@ -284,3 +284,7 @@ A big shoutout and thank you goes to
 - [w3cdevs](https://github.com/w3c/) for [validator.w3.org/feed](https://validator.w3.org/feed)
 - [avajs](https://github.com/avajs) (and the team behind) for [ava](https://github.com/avajs/ava)
 - [rben](https://github.com/rbren) for the beautiful [rss-parser](https://github.com/rbren/rss-parser)
+
+## Notes
+
+- v0.5.0 Temporary adjustment: rss-parser: contains a reference to a commit to solve request timeout handling due to missing merge.
