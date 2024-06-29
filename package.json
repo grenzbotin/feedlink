@@ -48,10 +48,10 @@
     "rss-parser": "https://github.com/rbren/rss-parser.git#0afb479c4e29d6d1e314bb9b65d2b558f31e25f2"
   },
   "devDependencies": {
-    "@ava/typescript": "^5.0.0",
+    "@ava/typescript": "^4.1.0",
     "@types/got": "^9.6.12",
     "@types/xml2js": "^0.4.14",
-    "ava": "^6.1.3",
+    "ava": "^5.3.1",
     "rollup": "^4.18.0",
     "typescript": "^5.5.2"
   },
